@@ -7,21 +7,139 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: white;
+  background: black;
   font-family: Arial, Helvetica, sans-serif;
+  @apply h-screen
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* .btn::before{
+  content: "";
+  @apply absolute w-[82%] h-10   hover:border  -z-10  border bg-gradient-to-tr  to-red-400 from-orange-300 
+} */
+
+
+
+/* Slider */
+
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  color: black;
+  
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide>img{
+  object-fit: cover;
+}
+.btn{
+@apply pl-1 flex  gap-x-2  hover:text-slate-300 bg-black p-2 rounded-lg
+}
+/* .sidebar::before{
+  content: " ";
+  @apply absolute -z-10 left-[30%] basis-[10%] bg-green-900  blur-md w-full  h-full
+} */
+.core{
+  @apply flex flex-row h-full gap-x-1 w-full
+}
+.sidebar{
+@apply sticky w-fit z-10  bg-black  border-r border-slate-200/10
+}
+
+.content{
+  @apply bg-black flex-grow 
+}
+
+.searchbar{
+  @apply w-full h-10 border items-center justify-center flex border-gray-500/20 gap-x-2
+}
+
+    .nav_btn{
+      @apply  font-oswald cursor-pointer hover:opacity-85;
+    }
+
+
+  video{
+    @apply object-cover w-full h-full  
   }
+
+/* ScrollBar */
+::-webkit-scrollbar{
+  @apply w-0.5
+}
+
+::-webkit-scrollbar-thumb{
+  @apply bg-gradient-to-b  from-red-500 to-fuchsia-600  h-2 rounded-lg
+}
+
+::-webkit-scrollbar-track{
+  @apply bg-black
+}
+
+
+
+.letter{
+   
+  @apply font-oswald font-bold text-lg  text-white
+}
+
+/* Posts_Card */
+
+.card::before{
+  content: "";
+  @apply absolute bg-gradient-to-tr from-red-500 to-fuchsia-500 blur-md -z-10 w-full h-full
+}
+
+.card{
+  padding: auto ;
+  @apply w-[90%] bg-black  border-gray-50/10 h-fit rounded-lg  text-white relative flex flex-col 
+}
+
+
+
+.card>img{
+  @apply rounded-lg object-cover
+}
+
+
+.posts{
+  @apply flex-grow  flex flex-col w-full items-center gap-y-14
+}
+
+
+
+/* Messages */
+
+
+.messages__box{
+  @apply w-1/2  aspect-square flex flex-col justify-evenly p-2 border
+}
+
+.msg{
+  @apply font-thin text-slate-200 font-oswald left-10 relative
+}
+
+.message{
+  @apply  leading-tight
+}
+
+.profile__info{
+  @apply w-full  flex  items-center p-2  gap-x-3 font-bold font-oswald 
+}
+
+.profile__info>img{
+  @apply w-5 h-5 object-cover rounded-full 
 }
